@@ -1,5 +1,6 @@
 *** Settings ***
 Library     SeleniumLibrary
+Variables   ../WebElements.py
 
 *** Variables ***
 ${search_text}      mobile
@@ -11,8 +12,8 @@ Input Search Text and Click Search
     [Arguments]  ${arg_search_text}
 #    Input Text    id:gh-ac      ${list_search_text}[1]
 #    Input Text    id:gh-ac      ${dictionary_search_text.boo}
-    Input Text    id:gh-ac      ${arg_search_text}
-    Press Keys    //*[@id="gh-btn"]       RETURN
+    Input Text     ${homepage_search_input}    ${arg_search_text}
+    Press Keys    ${homepage_search_button}       RETURN
 
 Click on Advanced Search Link
-    Click Element    id:gh-as-a
+    Click Element    ${homepage_advanced_search_link}
